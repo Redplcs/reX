@@ -1,0 +1,30 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "win32-base",
+            "displayName": "Microsoft Visual C++",
+            "description": "Using Microsoft Visual C++ with Ninja generator",
+            "generator": "Ninja",
+            "toolchainFile": "cmake/msvc-legacy-toolchain.cmake",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_C_COMPILER": "cl",
+                "CMAKE_CXX_COMPILER": "cl",
+                "CMAKE_LINKER": "link",
+                "CMAKE_AR": "lib"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "win32-debug",
+            "displayName": "Microsoft Visual C++ 7.0 - Debug",
+            "configurePreset": "win32-base",
+            "environment": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        }
+    ]
+}
